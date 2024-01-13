@@ -1,0 +1,60 @@
+﻿@model PassStrong.Models.PassModelCreation;
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+	<div class="container">
+		<h2 class="title">Password Generator</h2>
+	<form asp-action="Results">
+		<div class="length range__slider" data-min="4" data-max="32">
+			<div class="length__title field-title" >length:</div>
+
+		<input id="valorInput" type="number" value="0" hidden />
+			<input id="slider" type="range"asp-for="passWordLenght" min="4" max="32" value="16" />
+		</div>
+
+		<div class="settings">
+			<span class="settings__title field-title">settings</span>
+			<div class="setting">
+				<input type="checkbox" asp-for="includeUppercase"   />
+				<label asp-for="includeUppercase" >Include Uppercase</label>
+			</div>
+			<div class="setting">
+				<input type="checkbox" asp-for="includeLowercase"   />
+				<label asp-for="includeLowercase" >Include Lowercase</label>
+			</div>
+			<div class="setting">
+				<input type="checkbox" asp-for="includeNumeric" />
+				<label  asp-for="includeNumeric" >Include Numbers</label>
+			</div>
+			<div class="setting">
+				<input type="checkbox" asp-for="includeSpeciaL" />
+				<label asp-for="includeSpeciaL" >Include Symbols</label>
+			</div>
+		</div>
+
+		<button class="btn generate" id="generate" type="submit">Generate Password</button>
+	</form>
+	</div>
+
+
+	
+
+	
+	
+	<script>
+		$(document).ready(function () {
+			$("#slider").on("input", function () {
+				
+				// Actualiza el valor del input con el valor del slider
+				$("#valorInput").val($(this).val());
+				var sliderValue = $(this).val();
+				$(".length__title").text("length: " + sliderValue);
+
+			});
+		});
+</script>
+
+	

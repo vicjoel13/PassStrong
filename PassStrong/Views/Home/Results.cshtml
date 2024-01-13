@@ -1,0 +1,50 @@
+﻿@model PassStrong.Models.PassResults;
+
+@{
+	ViewData["Title"] = "Home Page";
+}
+
+<style>
+	h3{
+		color:white;
+	}
+
+</style>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+<div class="container">
+	<h2 class="title">Password Generator</h2>
+	<h3>Password Generated</h3> 
+	<input disabled type="text" asp-for="PassWord"  />
+	<h3>Score</h3>
+	<input disabled type="text" asp-for="Complexity" />
+	<h3>Time in crack Password</h3>
+	<input disabled type="text" asp-for="CrackResults.CalcTime" />
+	<h3>Score</h3>
+	<input disabled type="text" asp-for="Complexity" />
+	<h3>Time in generation</h3>
+	<input disabled type="text" asp-for="Time" />
+
+</div>
+
+</div>
+
+
+
+
+
+
+<script>
+	$(document).ready(function () {
+		$("#slider").on("input", function () {
+
+			// Actualiza el valor del input con el valor del slider
+			$("#valorInput").val($(this).val());
+			var sliderValue = $(this).val();
+			$(".length__title").text("length: " + sliderValue);
+
+		});
+	});
+</script>
+
+
